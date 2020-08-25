@@ -21,9 +21,11 @@ export default function App() {
       <Navbar title="To do app!" />
       <View style={styles.container}>
         <AddTodo onSubmit={addTodo}/>
-        <View>
-          { todos.map(todo => <Todo todo={todo} key={todo.id}/>) }
-        </View>
+
+        <FlatList 
+          data={todos}
+          renderItem={({item})=><Todo todo={item}/>}
+        />
       </View>
     </View>
   );
