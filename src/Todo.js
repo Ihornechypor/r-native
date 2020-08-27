@@ -2,10 +2,14 @@ import React from 'react'
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native'
 
 export const Todo = ({todo, onRemove}) => {
+    const longPressHandler = () => {
+        onRemove(todo.id)
+    }
+
     return (
         <TouchableOpacity 
             activeOpacity={0.5}
-            onLongPress={() => onRemove(todo.id)}
+            onLongPress={longPressHandler}
         >
             <View style={styles.todo}>
                 <Text>{todo.title}</Text>
